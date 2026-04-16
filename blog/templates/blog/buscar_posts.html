@@ -3,9 +3,11 @@
 {% block title %}Buscar posts - Mi Blog{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Buscar posts por título</h1>
+<section class="main-card p-4 p-md-5">
+<h1 class="h3 mb-2">Buscar posts por título</h1>
+<p class="text-muted mb-4">Ingresá una palabra o frase y te mostramos coincidencias.</p>
 
-<form method="get" class="card card-body mb-4">
+<form method="get" class="mb-4">
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Buscar</button>
 </form>
@@ -15,7 +17,7 @@
     {% if resultados %}
         <ul class="list-group">
             {% for post in resultados %}
-                <li class="list-group-item">
+                <li class="list-group-item post-item mb-3">
                     <strong>{{ post.titulo }}</strong>
                     <br>
                     <small class="text-muted">
@@ -26,8 +28,9 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p>No se encontraron resultados para ese título.</p>
+        <div class="alert alert-warning mb-0">No se encontraron resultados para ese título.</div>
     {% endif %}
 {% endif %}
+</section>
 {% endblock %}
 

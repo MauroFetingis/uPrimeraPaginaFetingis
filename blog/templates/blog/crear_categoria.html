@@ -3,12 +3,15 @@
 {% block title %}Nueva categoría - Mi Blog{% endblock %}
 
 {% block content %}
-<h1 class="mb-4">Crear nueva categoría</h1>
+<section class="main-card p-4 p-md-5">
+<h1 class="h3 mb-2">Crear nueva categoría</h1>
+<p class="text-muted mb-4">Definí una categoría para organizar mejor los posts.</p>
 
-<form method="post" class="card card-body">
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="btn btn-primary">Guardar categoría</button>
 </form>
+</section>
 {% endblock %}
 
