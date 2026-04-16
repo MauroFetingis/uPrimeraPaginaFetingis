@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Inicio - Mi Blog{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Últimos posts</h1>
+
+{% if ultimos_posts %}
+    <div class="list-group">
+        {% for post in ultimos_posts %}
+            <article class="list-group-item">
+                <h2 class="h5 mb-1">{{ post.titulo }}</h2>
+                <small class="text-muted">
+                    Publicado por {{ post.autor.nombre }}
+                    {% if post.categoria %} en {{ post.categoria.nombre }}{% endif %}
+                    el {{ post.fecha_publicacion|date:"d/m/Y H:i" }}
+                </small>
+                <p class="mt-2 mb-0">{{ post.contenido|truncatechars:200 }}</p>
+            </article>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Todavía no hay posts publicados. ¡Creá el primero desde el menú!</p>
+{% endif %}
+{% endblock %}
+

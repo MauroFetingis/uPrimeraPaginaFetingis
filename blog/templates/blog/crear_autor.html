@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Nuevo autor - Mi Blog{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Crear nuevo autor</h1>
+
+<form method="post" class="card card-body">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar autor</button>
+</form>
+{% endblock %}
+

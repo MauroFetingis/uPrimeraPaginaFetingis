@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Buscar posts - Mi Blog{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Buscar posts por título</h1>
+
+<form method="get" class="card card-body mb-4">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if resultados is not None %}
+    <h2 class="h5">Resultados</h2>
+    {% if resultados %}
+        <ul class="list-group">
+            {% for post in resultados %}
+                <li class="list-group-item">
+                    <strong>{{ post.titulo }}</strong>
+                    <br>
+                    <small class="text-muted">
+                        Autor: {{ post.autor.nombre }}
+                        {% if post.categoria %} | Categoría: {{ post.categoria.nombre }}{% endif %}
+                    </small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados para ese título.</p>
+    {% endif %}
+{% endif %}
+{% endblock %}
+
