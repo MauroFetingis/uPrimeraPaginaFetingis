@@ -5,7 +5,7 @@ Implementa el patrón MVT de Django, herencia de plantillas, tres modelos y form
 
 ## Cómo ejecutar el proyecto
 
-1. Crear y activar un entorno virtual de Python (opcional pero recomendado).
+1. Crear y activar un entorno virtual de Python.
 2. Instalar dependencias:
 
 ```bash
